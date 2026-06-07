@@ -1,12 +1,38 @@
 /* ========================================
-   DEVENDRA PORTFOLIO — script.js (v3 final)
+   DEVENDRA PORTFOLIO — script.js (v4 final)
 ======================================== */
 
 /* ---- NAVBAR SCROLL ---- */
 const navbar = document.getElementById('navbar');
+
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
+
+/* ---- ACTIVE NAV LINK (section spy) ---- */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+function updateActiveNav() {
+  let current = '';
+  const scrollY = window.scrollY + 80;
+
+  sections.forEach(sec => {
+    if (sec.offsetTop <= scrollY) {
+      current = sec.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav(); // run on load
 
 /* ---- HAMBURGER MENU ---- */
 const hamburger = document.getElementById('hamburger');
@@ -23,12 +49,28 @@ mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
 /* ---- SMOOTH SCROLL ---- */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
+    const targetId = this.getAttribute('href');
+    const target = document.querySelector(targetId);
     if (target) {
       e.preventDefault();
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
+      const offset = 70;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: 'smooth'
+      });
+      // Close mobile menu if open
+      mobileMenu.classList.remove('open');
     }
   });
+});
+
+/* ---- DISABLE CLICKS ON STATIC IMAGES ---- */
+// Hero photo and about photo are completely non-interactive
+document.querySelectorAll('.hero-photo, .about-photo, .dev-os-img').forEach(img => {
+  img.addEventListener('click', e => e.stopPropagation());
+  img.style.pointerEvents = 'none';
+  img.style.userSelect = 'none';
+  img.setAttribute('draggable', 'false');
 });
 
 /* ---- FADE IN ON SCROLL ---- */
@@ -38,12 +80,11 @@ const fadeEls = document.querySelectorAll(
 fadeEls.forEach(el => el.classList.add('fade-in'));
 
 const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Slight stagger for sibling elements
       const siblings = Array.from(entry.target.parentElement.children);
       const idx = siblings.indexOf(entry.target);
-      setTimeout(() => entry.target.classList.add('visible'), idx * 60);
+      setTimeout(() => entry.target.classList.add('visible'), idx * 55);
       fadeObserver.unobserve(entry.target);
     }
   });
@@ -85,7 +126,7 @@ const projectData = {
     title: 'Dentist Appointment Workflow',
     subtitle: 'WhatsApp-based appointment booking automation for dental clinic inquiries.',
     problem: 'Manual appointment handling and inconsistent communication made scheduling error-prone and slow.',
-    solution: 'Built a conversational appointment booking workflow with structured selection and automated confirmation — reducing back-and-forth to zero.',
+    solution: 'Built a conversational appointment booking workflow with structured selection and automated confirmation.',
     tools: ['WhatsApp', 'Automation Logic', 'Structured Workflow Design'],
     images: [
       { src: 'assets/dentist appointment/appointment chat 1.png', label: 'Chat Flow 1' },
@@ -97,7 +138,7 @@ const projectData = {
     num: '03',
     title: 'Invoice Generator System',
     subtitle: 'Automated invoice generation and structured invoice tracking system.',
-    problem: 'Manual invoice creation and repetitive tracking consumed significant time and introduced errors.',
+    problem: 'Manual invoice creation and repetitive tracking consumed time and introduced errors.',
     solution: 'Built a structured system for invoice generation and management — invoices are created, tracked, and organized automatically.',
     tools: ['Automation', 'Google Sheets', 'Document Generation'],
     images: [
@@ -110,8 +151,8 @@ const projectData = {
     num: '04',
     title: 'Payment Reminder Workflow',
     subtitle: 'Automated reminder workflow for overdue payments.',
-    problem: 'Inconsistent payment follow-up and missed reminders led to delayed collections and manual outreach.',
-    solution: 'Built a structured payment reminder system with tracking and automated communication — reminders go out on schedule without manual intervention.',
+    problem: 'Inconsistent payment follow-up and missed reminders led to delayed collections.',
+    solution: 'Built a structured payment reminder system with tracking and automated communication.',
     tools: ['Automation', 'Email', 'Tracking Systems'],
     images: [
       { src: 'assets/payment reminder/reminder mail.png', label: 'Reminder Email' },
@@ -122,7 +163,7 @@ const projectData = {
     title: 'WhatsApp Follow-up Handler',
     subtitle: 'Structured WhatsApp follow-up handling system.',
     problem: 'Manual repetitive client follow-up consumed time and often fell through the cracks.',
-    solution: 'Built workflow logic for organized and consistent communication — follow-ups are triggered automatically based on client status.',
+    solution: 'Built workflow logic for organized and consistent communication — follow-ups triggered automatically based on client status.',
     tools: ['WhatsApp', 'Workflow Logic', 'Communication Automation'],
     images: []
   }
@@ -140,8 +181,7 @@ function buildModalContent(data) {
   if (data.images && data.images.length > 0) {
     const imgs = data.images.map((img, i) =>
       `<div class="modal-gallery-item" data-index="${i}" role="button" tabindex="0" aria-label="View ${img.label}">
-        <img src="${img.src}" alt="${img.label}" loading="lazy"
-             draggable="false"
+        <img src="${img.src}" alt="${img.label}" loading="lazy" draggable="false"
              onerror="this.parentElement.style.display='none'" />
       </div>`
     ).join('');
@@ -194,13 +234,15 @@ document.querySelectorAll('.project-card[data-project]').forEach(card => {
     modalOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    // Bind gallery click → image viewer
+    // Bind gallery thumbnails → image viewer
     const gallery = document.getElementById('modal-gallery');
     if (gallery) {
       gallery.querySelectorAll('.modal-gallery-item').forEach(item => {
-        const open = () => openImgView(parseInt(item.dataset.index, 10));
-        item.addEventListener('click', open);
-        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+        const openFn = () => openImgView(parseInt(item.dataset.index, 10));
+        item.addEventListener('click', openFn);
+        item.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFn(); }
+        });
       });
     }
   });
@@ -209,19 +251,21 @@ document.querySelectorAll('.project-card[data-project]').forEach(card => {
 function closeModal() {
   modalOverlay.classList.remove('open');
   document.body.style.overflow = '';
-  setTimeout(() => { modalInner.innerHTML = ''; }, 400);
+  setTimeout(() => { modalInner.innerHTML = ''; }, 380);
 }
 
 modalClose.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+modalOverlay.addEventListener('click', e => {
+  if (e.target === modalOverlay) closeModal();
+});
 
 document.addEventListener('keydown', e => {
-  if (imgViewOverlay.classList.contains('open')) return; // let imgview handle
-  if (e.key === 'Escape') closeModal();
+  if (imgViewOverlay.classList.contains('open')) return;
+  if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
 });
 
 /* ========================================
-   IMAGE VIEWER (read-only, no zoom/expand)
+   IMAGE VIEWER (read-only, navigate only)
 ======================================== */
 const imgViewOverlay = document.getElementById('imgview-overlay');
 const imgViewImg     = document.getElementById('imgview-img');
@@ -235,15 +279,20 @@ let ivIndex = 0;
 function updateImgViewNav() {
   imgViewPrev.classList.toggle('hidden', ivIndex === 0);
   imgViewNext.classList.toggle('hidden', ivIndex >= currentImages.length - 1);
-  imgViewCounter.textContent = currentImages.length > 1 ? `${ivIndex + 1} / ${currentImages.length}` : '';
+  if (currentImages.length > 1) {
+    imgViewCounter.textContent = `${ivIndex + 1} / ${currentImages.length}`;
+  } else {
+    imgViewCounter.textContent = '';
+  }
 }
 
 function setImgViewImage(index) {
   ivIndex = index;
   imgViewImg.classList.remove('loaded');
-  imgViewImg.src = currentImages[ivIndex].src;
-  imgViewImg.alt = currentImages[ivIndex].label || '';
-  imgViewLabel.textContent = currentImages[ivIndex].label || '';
+  const img = currentImages[ivIndex];
+  imgViewImg.src = img.src;
+  imgViewImg.alt = img.label || '';
+  imgViewLabel.textContent = img.label || '';
   imgViewImg.onload  = () => imgViewImg.classList.add('loaded');
   imgViewImg.onerror = () => imgViewImg.classList.add('loaded');
   updateImgViewNav();
@@ -257,8 +306,10 @@ function openImgView(index) {
 
 function closeImgView() {
   imgViewOverlay.classList.remove('open');
-  imgViewImg.src = '';
-  imgViewImg.classList.remove('loaded');
+  setTimeout(() => {
+    imgViewImg.src = '';
+    imgViewImg.classList.remove('loaded');
+  }, 260);
 }
 
 document.getElementById('imgview-close').addEventListener('click', closeImgView);
@@ -276,12 +327,15 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') { if (ivIndex < currentImages.length - 1) setImgViewImage(ivIndex + 1); }
 });
 
-// Touch swipe for mobile
+// Touch swipe support for mobile gallery navigation
 let touchStartX = 0;
-imgViewOverlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+imgViewOverlay.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+
 imgViewOverlay.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 50) {
+  if (Math.abs(dx) > 48) {
     if (dx < 0 && ivIndex < currentImages.length - 1) setImgViewImage(ivIndex + 1);
     if (dx > 0 && ivIndex > 0) setImgViewImage(ivIndex - 1);
   }
