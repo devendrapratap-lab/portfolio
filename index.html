@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devendra | Automation • Systems • Execution</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo-text">DEV</span><span class="nav-logo-dot">.</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#what-i-build">What I Build</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#dev-os" class="nav-devos">DEV OS</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#what-i-build" class="mobile-link">What I Build</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#dev-os" class="mobile-link">DEV OS</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="hero-dot"></span>
+        Available for collaboration
+      </div>
+      <h1 class="hero-heading">
+        <span class="hero-name">Devendra</span>
+        <span class="hero-divider">|</span>
+        <span class="hero-role">Automation • Systems • Execution</span>
+      </h1>
+      <p class="hero-sub">
+        Building workflow automation, AI-assisted systems,<br class="br-desktop"> and execution-focused solutions.
+      </p>
+      <p class="hero-desc">
+        B.Pharm student exploring automation, systems thinking, and technical problem-solving through practical implementation.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="#dev-os" class="btn btn-secondary">Learn About DEV OS</a>
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-col">
+          <div class="about-img-wrap">
+            <img src="assets/images/prof edited img.png" alt="Devendra" class="about-photo" draggable="false" onerror="this.style.display='none'; this.parentElement.classList.add('no-img')" />
+          </div>
+        </div>
+        <div class="about-text-col">
+          <div class="section-label">About</div>
+          <h2 class="section-heading">Curious builder.<br>Systems thinker.</h2>
+          <p class="about-body">
+            I am a B.Pharm student with a strong interest in workflow automation, systems thinking, productivity systems, and technical problem-solving. I enjoy building structured systems that improve execution, organization, and operational efficiency through practical experimentation and AI-assisted implementation.
+          </p>
+          <div class="about-pills">
+            <span class="pill">Workflow Automation</span>
+            <span class="pill">Systems Thinking</span>
+            <span class="pill">AI-Assisted Execution</span>
+            <span class="pill">Practical Builder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I BUILD -->
+  <section class="what-i-build" id="what-i-build">
+    <div class="container">
+      <div class="section-label">Focus Areas</div>
+      <h2 class="section-heading">What I Build</h2>
+      <div class="build-cards">
+        <div class="build-card">
+          <div class="build-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm14 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="build-card-title">Workflow Automation</h3>
+          <p class="build-card-desc">Building structured automation systems to reduce repetitive manual work and improve operational efficiency.</p>
+        </div>
+        <div class="build-card">
+          <div class="build-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.34-7.66-2.12 2.12M6.46 17.54l-2.12 2.12m14.24 0-2.12-2.12M6.46 6.46 4.34 4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="build-card-title">AI-Assisted Systems</h3>
+          <p class="build-card-desc">Using AI-assisted approaches for structured research, execution, productivity, and system building.</p>
+        </div>
+        <div class="build-card">
+          <div class="build-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h8M8 8h8M8 16h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="build-card-title">Technical Operations</h3>
+          <p class="build-card-desc">Building backend operational systems for onboarding, document handling, organization, and workflow management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-label">Work</div>
+      <h2 class="section-heading">Projects</h2>
+      <p class="section-sub">Each project is a real system built for real operational problems.</p>
+      <div class="project-grid">
+
+        <div class="project-card" data-project="onboarding">
+          <div class="project-card-num">01</div>
+          <div class="project-card-info">
+            <h3 class="project-card-title">Client Onboarding Automation</h3>
+            <p class="project-card-desc">Automated client onboarding and structured document organization system.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag">n8n</span><span class="tag">Google Drive</span><span class="tag">Webhooks</span>
+          </div>
+          <div class="project-card-arrow">→</div>
+        </div>
+
+        <div class="project-card" data-project="dentist">
+          <div class="project-card-num">02</div>
+          <div class="project-card-info">
+            <h3 class="project-card-title">Dentist Appointment Workflow</h3>
+            <p class="project-card-desc">WhatsApp-based appointment booking automation for dental clinic inquiries.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag">WhatsApp</span><span class="tag">Automation</span><span class="tag">Workflow Design</span>
+          </div>
+          <div class="project-card-arrow">→</div>
+        </div>
+
+        <div class="project-card" data-project="invoice">
+          <div class="project-card-num">03</div>
+          <div class="project-card-info">
+            <h3 class="project-card-title">Invoice Generator System</h3>
+            <p class="project-card-desc">Automated invoice generation and structured invoice tracking system.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Automation</span><span class="tag">Google Sheets</span><span class="tag">Doc Gen</span>
+          </div>
+          <div class="project-card-arrow">→</div>
+        </div>
+
+        <div class="project-card" data-project="payment">
+          <div class="project-card-num">04</div>
+          <div class="project-card-info">
+            <h3 class="project-card-title">Payment Reminder Workflow</h3>
+            <p class="project-card-desc">Automated reminder workflow for overdue payments with tracking.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Automation</span><span class="tag">Email</span><span class="tag">Tracking</span>
+          </div>
+          <div class="project-card-arrow">→</div>
+        </div>
+
+        <div class="project-card" data-project="whatsapp">
+          <div class="project-card-num">05</div>
+          <div class="project-card-info">
+            <h3 class="project-card-title">WhatsApp Follow-up Handler</h3>
+            <p class="project-card-desc">Structured WhatsApp follow-up handling system for consistent client communication.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag">WhatsApp</span><span class="tag">Workflow Logic</span><span class="tag">Communication</span>
+          </div>
+          <div class="project-card-arrow">→</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DEV OS -->
+  <section class="dev-os" id="dev-os">
+    <div class="dev-os-bg">
+      <div class="dev-os-grid-overlay"></div>
+      <div class="dev-os-glow dev-os-glow-1"></div>
+      <div class="dev-os-glow dev-os-glow-2"></div>
+    </div>
+    <div class="container dev-os-container">
+      <div class="dev-os-header">
+        <div class="dev-os-badge">
+          <span class="dev-os-status-dot"></span>
+          <span class="dev-os-badge-text">SYSTEM ACTIVE</span>
+        </div>
+        <h2 class="dev-os-heading">DEV OS</h2>
+        <p class="dev-os-subtitle">AI-powered personal operating system for structured execution, planning, research, and productivity.</p>
+        <div class="dev-os-version">v2.3 <span class="dev-os-version-tag">In Development</span></div>
+      </div>
+
+      <div class="dev-os-body">
+        <div class="dev-os-left">
+          <div class="dev-os-terminal">
+            <div class="terminal-bar">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-yellow"></span>
+              <span class="t-dot t-green"></span>
+              <span class="terminal-title">dev-os — bash</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="t-prompt">dev@os:~$</span> <span class="t-cmd">status --all</span></div>
+              <div class="terminal-line t-output">▶ Core Areas loaded</div>
+              <div class="terminal-line t-output t-active">▶ Productivity Assistance............<span class="t-ok">ACTIVE</span></div>
+              <div class="terminal-line t-output t-active">▶ Structured Research................<span class="t-ok">ACTIVE</span></div>
+              <div class="terminal-line t-output t-active">▶ Workflow Thinking..................<span class="t-ok">ACTIVE</span></div>
+              <div class="terminal-line t-output t-active">▶ Execution Support..................<span class="t-ok">ACTIVE</span></div>
+              <div class="terminal-line t-output t-active">▶ Task Organization..................<span class="t-ok">ACTIVE</span></div>
+              <div class="terminal-line"><span class="t-prompt">dev@os:~$</span> <span class="t-cmd">build --version</span></div>
+              <div class="terminal-line t-output">Stack: HTML · CSS · JS · n8n · AI</div>
+              <div class="terminal-line t-output">Version: 2.3-dev</div>
+              <div class="terminal-line t-cursor"><span class="t-prompt">dev@os:~$</span> <span class="blink">_</span></div>
+            </div>
+          </div>
+
+          <p class="dev-os-desc">
+            DEV OS is a personal productivity and execution system designed to improve structured execution, research assistance, productivity, and workflow organization. Built from practical experience — not theory.
+          </p>
+          <div class="dev-os-stack">
+            <span class="stack-tag">HTML</span>
+            <span class="stack-tag">CSS</span>
+            <span class="stack-tag">JavaScript</span>
+            <span class="stack-tag">n8n</span>
+            <span class="stack-tag">AI-Assisted Systems</span>
+          </div>
+        </div>
+
+        <div class="dev-os-right">
+          <div class="dev-os-img-wrap">
+            <img src="assets/dev os/dev v2.1.png" alt="DEV OS Dashboard" class="dev-os-img" onerror="this.style.display='none'" />
+            <div class="dev-os-img-frame"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="section-label">Experience</div>
+      <h2 class="section-heading">Work</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="timeline-company">Versty Agency</span>
+              <span class="timeline-duration">Feb 2025 – Present</span>
+            </div>
+            <h3 class="timeline-role">Automation & Technical Operations</h3>
+            <ul class="timeline-list">
+              <li>Technical setup for Meta and Google Ads</li>
+              <li>Workflow automation systems</li>
+              <li>Landing page support</li>
+              <li>Operational systems and backend organization</li>
+              <li>Client onboarding workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-heading">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon">⚙</div>
+            <h3 class="skill-group-title">Automation</h3>
+          </div>
+          <div class="skill-chips">
+            <span class="skill-chip">Workflow Design</span>
+            <span class="skill-chip">n8n</span>
+            <span class="skill-chip">Webhooks</span>
+            <span class="skill-chip">Process Automation</span>
+            <span class="skill-chip">API Logic</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon">◈</div>
+            <h3 class="skill-group-title">AI & Research</h3>
+          </div>
+          <div class="skill-chips">
+            <span class="skill-chip">ChatGPT</span>
+            <span class="skill-chip">Claude</span>
+            <span class="skill-chip">Structured Research</span>
+            <span class="skill-chip">AI-assisted Execution</span>
+            <span class="skill-chip">Prompting</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon">▣</div>
+            <h3 class="skill-group-title">Technical Operations</h3>
+          </div>
+          <div class="skill-chips">
+            <span class="skill-chip">Google Sheets</span>
+            <span class="skill-chip">Landing Pages</span>
+            <span class="skill-chip">Backend Organization</span>
+            <span class="skill-chip">Workflow Management</span>
+            <span class="skill-chip">Documentation Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-heading">Contact</h2>
+      <p class="contact-intro">Open to collaboration, freelance automation work, and interesting conversations about systems.</p>
+      <div class="contact-cards">
+        <a href="mailto:singhpratapdev123@gmail.com" class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m2 7 10 7 10-7" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-value">singhpratapdev123@gmail.com</span>
+          </div>
+          <span class="contact-card-arrow">↗</span>
+        </a>
+        <a href="https://wa.me/918115124833" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-card-icon contact-card-icon--wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <span class="contact-card-label">WhatsApp</span>
+            <span class="contact-card-value">Message me directly</span>
+          </div>
+          <span class="contact-card-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo"><span class="nav-logo-text">DEV</span><span class="nav-logo-dot">.</span></span>
+      <span class="footer-tagline">Built with curiosity, systems thinking, and continuous learning.</span>
+      <span class="footer-copy">© 2025 Devendra</span>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODALS -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">×</button>
+      <div class="modal-inner" id="modal-inner"></div>
+    </div>
+  </div>
+
+  <!-- IMAGE VIEWER (read-only, no zoom popup) -->
+  <div class="imgview-overlay" id="imgview-overlay">
+    <button class="imgview-close" id="imgview-close" aria-label="Close">×</button>
+    <button class="imgview-nav imgview-prev" id="imgview-prev" aria-label="Previous">‹</button>
+    <button class="imgview-nav imgview-next" id="imgview-next" aria-label="Next">›</button>
+    <div class="imgview-stage">
+      <img class="imgview-img" id="imgview-img" src="" alt="" draggable="false" />
+    </div>
+    <div class="imgview-footer">
+      <span class="imgview-label" id="imgview-label"></span>
+      <span class="imgview-counter" id="imgview-counter"></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
